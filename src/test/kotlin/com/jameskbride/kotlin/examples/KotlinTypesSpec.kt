@@ -31,5 +31,44 @@ object KotlinTypesSpec : Spek({
             val otherByteVal: Byte = 1
             assertEquals(otherByteVal, byteVal)
         }
+
+        it("has Characters") {
+            val char: Char = '\n'
+
+            assertEquals('\n', char);
+        }
+
+        describe("strings") {
+            it("has Strings") {
+                val someString: String = "sasquatch"
+
+                assertEquals("sasquatch", someString)
+            }
+
+            it("has 'raw' strings") {
+                val aRawString: String = """
+                    sasquatch
+                """
+
+                val anotherRawString: String = """
+                    sasquatch
+                """
+
+                assertEquals(aRawString, anotherRawString)
+            }
+
+            it("has templating") {
+                var sasquatchCount = 1
+                var templatedString: String = "I see $sasquatchCount sasquatch"
+
+                assertEquals("I see 1 sasquatch", templatedString)
+
+                sasquatchCount = 2
+                templatedString = "I see ${sasquatchCount} sasquatch"
+
+                assertEquals("I see 2 sasquatch", templatedString)
+
+            }
+        }
     }
 })
